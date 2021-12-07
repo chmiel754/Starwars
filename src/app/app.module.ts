@@ -11,6 +11,7 @@ import {
   HttpClientModule,
 } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TabMenuModule } from 'primeng/tabmenu';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, '../assets/i18n/', '.json');
@@ -27,9 +28,10 @@ export function createTranslateLoader(http: HttpClient) {
       loader: {
         provide: TranslateLoader,
         useFactory: (createTranslateLoader),
-        deps: [HttpClient]
-      }
+        deps: [HttpClient],
+      },
     }),
+    TabMenuModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
